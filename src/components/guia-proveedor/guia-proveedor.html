@@ -1,0 +1,253 @@
+<!-- NAVBAR -->
+<nav>
+  <a routerLink="/" class="nav-brand">
+    <div class="icon">📖</div>
+    <span>INDECOPI<br><small>Guía Proveedor</small></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#que-es">¿Qué es?</a></li>
+    <li><a href="#tipos">Tipos de Libro</a></li>
+    <li><a href="#pasos">Implementación</a></li>
+    <li><a href="#aviso">El Aviso</a></li>
+  </ul>
+  <!-- Vinculación reactiva de la barra de progreso -->
+  <div class="progress-bar" [style.width.%]="progressWidth"></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle hero-circle-1"></div>
+  <div class="hero-circle hero-circle-2"></div>
+  <div class="hero-content">
+
+    <div class="hero-copy">
+      <span class="hero-badge">Guía para Proveedores · INDECOPI</span>
+      <h1 class="hero-title">Todo sobre el<br><em>Libro de Reclamaciones</em></h1>
+      <p class="hero-sub">Conoce la obligación legal, los tipos de libro disponibles y cómo implementarlo correctamente en tu negocio.</p>
+      <div class="hero-actions">
+        <a href="#que-es" class="btn-primary">📖 Empezar a leer</a>
+        <a href="#pasos" class="btn-secondary">✨ Obtén tu libro</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <h3>¿Sabías esto?</h3>
+        <p>Todo proveedor que atiende al público está obligado a contar con uno.</p>
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <span class="num">15</span>
+            <span class="lbl">Días para<br>responder</span>
+          </div>
+          <div class="hero-stat">
+            <span class="num">48h</span>
+            <span class="lbl">Para reporte<br>de robo</span>
+          </div>
+          <div class="hero-stat">
+            <span class="num">2</span>
+            <span class="lbl">Años de<br>custodia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECCIÓN: ¿QUÉ ES? -->
+<section id="que-es">
+  <div class="container">
+    <div class="que-es-grid">
+      <div class="que-es-col-left animate">
+        <span class="section-tag">Definición</span>
+        <h2 class="section-title">¿Qué es el Libro<br>de <em>Reclamaciones</em>?</h2>
+        <div class="definition-box">
+          <div class="big-quote">"</div>
+          <p>Es un documento físico o virtual que todo proveedor que atiende al público debe tener para que los consumidores puedan registrar sus quejas o reclamos sobre productos o servicios que adquieren.</p>
+        </div>
+      </div>
+
+      <div class="que-es-col-right animate">
+        <h3 class="cards-title">Tipos de registro</h3>
+        <div class="registro-cards">
+          <div class="reg-card">
+            <div class="rc-icon">⚠️</div>
+            <div>
+              <h4>Reclamo</h4>
+              <p>Expresa una disconformidad sobre los bienes o servicios recibidos. El proveedor tiene la obligación de atenderlo.</p>
+            </div>
+          </div>
+          <div class="reg-card queja">
+            <div class="rc-icon">💬</div>
+            <div>
+              <h4>Queja</h4>
+              <p>Malestar o insatisfacción por la atención al público o por el trato recibido durante la prestación del servicio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN: TIPOS DE LIBRO -->
+<section id="tipos">
+  <div class="container">
+    <div class="animate">
+      <span class="section-tag">Modalidades</span>
+      <h2 class="section-title">¿Sabes qué tipo de libro <em>necesitas</em>?</h2>
+      <p class="section-desc">Existen dos tipos de libros según la modalidad de atención al público de tu negocio, físico y virtual. Elige la que corresponde o combínalas.</p>
+    </div>
+
+    <div class="tipos-grid">
+      <div class="tipo-card animate">
+        <div class="tipo-header">
+          <div class="th-icon">📚</div>
+          <h3>Libro Físico</h3>
+          <p>Para establecimientos con atención presencial: tiendas, restaurantes, oficinas de atención al cliente y similares.</p>
+        </div>
+        <div class="tipo-body">
+          <ul class="tipo-list">
+            <li>Debe contar con hojas desglosables y autocopiativas, debidamente numeradas.</li>
+            <li>Cada hoja debe tener 3 páginas: 1 original y 2 autocopiativas.</li>
+            <li>Si generas las hojas virtualmente, debes imprimirlas y unirlas en un solo libro.</li>
+          </ul>
+          <div class="tipo-alert">
+            💡 Puedes generar tu formato en el portal oficial de INDECOPI.
+          </div>
+        </div>
+      </div>
+
+      <div class="tipo-card virtual animate">
+        <div class="tipo-header virtual">
+          <div class="th-icon">💻</div>
+          <h3>Libro Virtual</h3>
+          <p>Para establecimientos con atención por plataformas digitales.</p>
+        </div>
+        <div class="tipo-body">
+          <ul class="tipo-list">
+            <li>El enlace al libro debe exhibirse en la página de inicio de forma permanente.</li>
+            <li>El consumidor llena el formulario virtualmente.</li>
+            <li>Se notifica al consumidor automáticamente que se ha recibido su queja o reclamo.</li>
+          </ul>
+          <div class="tipo-alert">
+            ⚠️ Si atiendes de manera presencial y decides usar libro virtual, debes contar también con un <strong>Libro Físico de Respaldo</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN: PASOS -->
+<section id="pasos">
+  <div class="container">
+    <div class="section-header animate">
+      <span class="section-tag">Guía Paso a Paso</span>
+      <h2 class="section-title">Cómo <em>implementar</em><br>tu libro</h2>
+      <p class="section-desc">Sigue estos pasos para cumplir con la normativa y gestionar correctamente los reclamos de tus consumidores.</p>
+    </div>
+
+    <div class="steps-wrapper">
+      <div class="step animate">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Elige el formato</h4>
+          <p>Define si necesitas un libro físico, virtual o ambos según tu modelo de negocio y el tipo de atención que ofreces al público.</p>
+        </div>
+      </div>
+      <div class="step animate">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Adquiere o diseña</h4>
+          <p>Compra el libro físico en librerías autorizadas o implementa el formulario digital en tu web cumpliendo con los campos obligatorios dictados por INDECOPI.</p>
+        </div>
+      </div>
+      <div class="step animate">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Coloca el Aviso</h4>
+          <p>Instala el letrero en tu local o el enlace en tu sitio web de forma visible y permanente para que los usuarios sepan de su existencia.</p>
+        </div>
+      </div>
+      <div class="step animate">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Entrega inmediata</h4>
+          <p>Ante el pedido del consumidor, debes entregar el libro de forma inmediata. No puedes condicionar la entrega del mismo bajo ninguna circunstancia.</p>
+        </div>
+      </div>
+      <div class="step animate">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h4>Responde a tiempo</h4>
+          <p>Tienes un plazo máximo legal de <strong>15 días hábiles</strong> para dar respuesta formal y sustentada al reclamo o queja del consumidor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN: EL AVISO -->
+<section id="aviso">
+  <div class="container">
+    <div class="aviso-content">
+      <div class="aviso-col-info animate">
+        <span class="section-tag">Obligación Visual</span>
+        <h2 class="section-title">¿Qué es el <em>aviso</em>?</h2>
+        <p class="aviso-desc">Es el letrero físico o aviso virtual que informa a los consumidores que cuentas con un Libro de Reclamaciones.</p>
+        <ul class="aviso-list">
+          <li>Debe estar en un lugar visible y de fácil acceso.</li>
+          <li>En portales web debe aparecer en la <strong>página de inicio</strong> de forma permanente.</li>
+          <li>Es una <strong style="color:var(--coral)">obligación legal</strong>: no tenerlo genera sanciones.</li>
+        </ul>
+      </div>
+
+      <div class="aviso-col-downloads animate">
+        <h4 class="aviso-download-title">Descarga los formatos oficiales:</h4>
+        <div class="aviso-links">
+          <a href="#" class="download-btn">Aviso para establecimiento físico <span>📥</span></a>
+          <a href="#" class="download-btn">Aviso para portal web / E-commerce <span>📥</span></a>
+          <a href="#" class="download-btn">Aviso para Redes Sociales y Apps <span>📥</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN: LA YAPA -->
+<section id="yapa">
+  <div class="container">
+    <div class="section-header--centered animate">
+      <span class="section-tag">Datos Extra</span>
+      <h2 class="section-title">La <em>Yapa</em> 🎁</h2>
+      <p class="section-desc">Información adicional para cumplir correctamente con la normativa.</p>
+    </div>
+
+    <div class="yapa-grid">
+      <div class="yapa-card animate">
+        <div class="yc-emoji">🆔</div>
+        <h4>Razón Social y RUC</h4>
+        <p>La hoja de reclamación virtual <strong>debe contar</strong> con la razón social y RUC del proveedor para permitir la identificación legal inmediata.</p>
+      </div>
+      <div class="yapa-card animate">
+        <div class="yc-emoji">🤝</div>
+        <h4>Acuerdo entre partes</h4>
+        <p>Si llegan a un acuerdo directo sobre el reclamo, el problema se da por solucionado sin necesidad de escalar la situación a la autoridad.</p>
+      </div>
+      <div class="yapa-card animate">
+        <div class="yc-emoji">🗓️</div>
+        <h4>Conservación</h4>
+        <p>Las hojas de reclamaciones, sean físicas o virtuales, deben conservarse obligatoriamente por un mínimo de <strong>2 años</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-badge">INDECOPI · Guía Interactiva de Consumo</div>
+  <p>Información basada en el <strong>Código de Protección y Defensa del Consumidor</strong>.<br>
+  Para más información visita <strong>indecopi.gob.pe</strong></p>
+</footer>

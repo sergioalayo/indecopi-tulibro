@@ -1,11 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { GuiaProveedorComponent } from '../components/guia-proveedor/guia-proveedor';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [GuiaProveedorComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('src');
+export class AppComponent {
+  title = 'TuLibro';
 }
