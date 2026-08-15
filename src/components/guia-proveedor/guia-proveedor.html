@@ -101,6 +101,7 @@
     </div>
 
     <div class="tipos-grid">
+      <!-- Tarjeta Libro Físico -->
       <div class="tipo-card animate">
         <div class="tipo-header">
           <div class="th-icon">📚</div>
@@ -113,12 +114,13 @@
             <li>Cada hoja debe tener 3 páginas: 1 original y 2 autocopiativas.</li>
             <li>Si generas las hojas virtualmente, debes imprimirlas y unirlas en un solo libro.</li>
           </ul>
-          <div class="tipo-alert">
-            💡 Puedes generar tu formato en el portal oficial de INDECOPI.
+          <div class="tipo-alert" style="cursor: pointer;" (click)="seleccionarFormato('fisico')">
+            ⚙️ <strong>Genera tu Formato de Hoja de Reclamación Física</strong>
           </div>
         </div>
       </div>
 
+      <!-- Tarjeta Libro Virtual -->
       <div class="tipo-card virtual animate">
         <div class="tipo-header virtual">
           <div class="th-icon">💻</div>
@@ -131,12 +133,24 @@
             <li>El consumidor llena el formulario virtualmente.</li>
             <li>Se notifica al consumidor automáticamente que se ha recibido su queja o reclamo.</li>
           </ul>
-          <div class="tipo-alert">
-            ⚠️ Si atiendes de manera presencial y decides usar libro virtual, debes contar también con un <strong>Libro Físico de Respaldo</strong>.
+          <div class="tipo-alert" style="cursor: pointer;" (click)="seleccionarFormato('virtual')">
+            ⚙️ <strong>Genera tu Formato de Hoja de Reclamación Virtual</strong>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Despliegue Dinámico del Formulario Oficial -->
+    @if (formatoSeleccionado) {
+      <div id="divGenForRef" class="mt-4">
+        <app-generar-formato 
+          [tipo]="formatoSeleccionado"
+          (cerrar)="cerrarFormato()"
+          (descargar)="ejecutarDescarga($event)">
+        </app-generar-formato>
+      </div>
+    }
+
   </div>
 </section>
 

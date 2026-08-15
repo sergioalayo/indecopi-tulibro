@@ -952,3 +952,93 @@ footer .f-badge {
     font-size: 1.1rem;
   }
 }
+
+/* ============================================================
+   ESTILOS FORMULARIO INDECOPI
+   ============================================================ */
+.position-relative {
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-block {
+  display: block;
+}
+
+.text-danger {
+  color: #dc3545;
+  font-size: 0.8rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  background-color: #fff;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+.btn-primary-ind {
+  background-color: #0d47a1;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.4rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.btn-primary-ind:hover:not(:disabled) {
+  background-color: #1565c0;
+}
+
+.btn-primary-ind:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-custom-registrar {
+  width: 100%;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.card-justify-center {
+  display: flex;
+  justify-content: center;
+}

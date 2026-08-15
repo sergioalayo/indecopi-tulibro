@@ -1,0 +1,135 @@
+<div class="row mb-5">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="card-grid">
+      <div class="card-row">
+        <div class="card-col-12">
+          <form [formGroup]="formHoja" id="formHojaReclamacion" (ngSubmit)="onGenerar()">
+            <div class="card">
+              <div class="card-grid">
+                
+                <!-- Encabezado con Botón Cerrar -->
+                <div class="card-row">
+                  <div class="card-col-12 position-relative">
+                    <h4 class="title-head-2 text-center" style="font-size: 20px; color: black; margin-right: 40px;">
+                      Genera el formato de la Hoja de Reclamación
+                    </h4>
+                    <div id="btnCerrarForm" (click)="onCerrar()" style="cursor: pointer; padding: 7px; position: absolute; right: 0; top: -10px; color: #6B7280;">
+                      <svg class="svg-inline--fa" style="width: 25px; height: 25px;" fill="currentColor" viewBox="0 0 512 512">
+                        <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM167 167c-9.4 9.4-9.4 24.6 0 33.9l55 55-55 55c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l55-55 55 55c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-55-55 55-55c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-55 55-55-55c-9.4-9.4-24.6-9.4-33.9 0z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Input RUC -->
+                <div class="card-row">
+                  <div class="card-col-12">
+                    <div class="form-group">
+                      <label for="numeroRuc" class="form-label">N° de RUC</label>
+                      <input id="numeroRuc" 
+                             type="text" 
+                             formControlName="numeroRuc" 
+                             maxlength="11" 
+                             (input)="onRucInput($event)"
+                             placeholder="Se admiten solo RUC 10, 15, 20 y 90" 
+                             class="form-control"
+                             [class.is-invalid]="formHoja.get('numeroRuc')?.touched && formHoja.get('numeroRuc')?.invalid">
+                      @if (formHoja.get('numeroRuc')?.touched && formHoja.get('numeroRuc')?.errors?.['invalidRuc']) {
+                        <small class="text-danger d-block mt-1">El RUC debe tener 11 dígitos y empezar con 10, 15, 20 o 90.</small>
+                      }
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Input Razón Social -->
+                <div class="card-row">
+                  <div class="card-col-12">
+                    <div class="form-group">
+                      <label for="proveedor" class="form-label">Razón Social</label>
+                      <input id="proveedor" 
+                             type="text" 
+                             formControlName="proveedor" 
+                             maxlength="500" 
+                             (input)="onTextInput('proveedor', $event)"
+                             class="form-control"
+                             [class.is-invalid]="formHoja.get('proveedor')?.touched && formHoja.get('proveedor')?.invalid">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Input Domicilio -->
+                <div class="card-row">
+                  <div class="card-col-12">
+                    <div class="form-group">
+                      <label for="domicilio" class="form-label">
+                        {{ tipo === 'fisico' ? 'Domicilio del establecimiento' : 'Domicilio fiscal' }}
+                      </label>
+                      <input id="domicilio" 
+                             type="text" 
+                             formControlName="domicilio" 
+                             maxlength="500" 
+                             (input)="onTextInput('domicilio', $event)"
+                             class="form-control"
+                             [class.is-invalid]="formHoja.get('domicilio')?.touched && formHoja.get('domicilio')?.invalid">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card Informativo y Botones de Acción -->
+                <div class="card-row card-justify-center">
+                  <div class="card-col-12 card-col-md-6 card-col-lg-6 card-col-xl-4" style="margin-top: 5px;">
+                    <div id="divGenerarLote" class="card card-shadow equal-card d-flex flex-column h-100" style="align-items: center; background-color: #e6efff; text-align: center; font-size: 13px;">
+                      
+                      <h3 style="margin: 0px;">{{ tipo === 'fisico' ? 'Libro Físico' : 'Libro Virtual' }}</h3>
+                      
+                      @if (tipo === 'fisico') {
+                        <p>La Hoja de Reclamación física, deberá contar con <b>tres (3) desglosables</b>:</p>
+                        <ol style="margin-top: 0px; text-align: left; padding-left: 20px;">
+                          <li>Original para el Consumidor.</li>
+                          <li>Una copia para el Proveedor.</li>
+                          <li>Otra copia para el INDECOPI (en caso lo solicite).</li>
+                        </ol>
+                      } @else {
+                        <p>El consumidor puede solicitar una copia de su reclamación al correo electrónico que para dichos efectos haya proporcionado.</p>
+                      }
+
+                      <div class="mt-1 w-100">
+                        <button type="submit" 
+                                class="btn btn-primary-ind btn-custom-registrar text-uppercase" 
+                                style="font-weight: 700; height: auto !important;" 
+                                [disabled]="formHoja.invalid">
+                          <svg class="svg-inline--fa btn-icon" style="width: 14px; height: 14px; margin-right: 6px;" fill="currentColor" viewBox="0 0 448 512">
+                            <path d="M256 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 210.7-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 242.7 256 32zM64 320c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-46.9 0-56.6 56.6c-31.2 31.2-81.9 31.2-113.1 0L110.9 320 64 320zm304 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                          </svg>
+                          Genera tu Formato de Hoja de Reclamación {{ tipo === 'fisico' ? 'Física' : 'Virtual' }}
+                        </button>
+                        <br><br>
+                        <button type="button" 
+                                (click)="onCerrar()"
+                                class="btn btn-secondary btn-custom-registrar text-uppercase" 
+                                style="font-weight: 700; height: auto !important;">
+                          <svg class="svg-inline--fa btn-icon" style="width: 14px; height: 14px; margin-right: 6px;" fill="currentColor" viewBox="0 0 384 512">
+                            <path d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"/>
+                          </svg>
+                          Cerrar
+                        </button>
+                        <br><br>
+                        @if (tipo === 'fisico') {
+                          <small class="text-center">*No olvides que estas hojas de reclamación deben formar parte de un libro, al que llamarás "Libro de Reclamaciones".</small>
+                        } @else {
+                          <small class="text-center">*El formato que descargues es editable.</small>
+                        }
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
