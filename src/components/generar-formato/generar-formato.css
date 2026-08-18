@@ -1,0 +1,293 @@
+/* Contenedor Principal con marco estilizado */
+.form-container-wrapper {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--yellow);
+  padding: 3rem 2.5rem 2.5rem;
+  box-shadow: 0 20px 50px rgba(45, 26, 18, 0.08);
+  margin-top: 2.5rem;
+}
+
+/* Animación de apertura suave */
+.animate-form {
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botón cerrar flotante */
+.btn-close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+
+.btn-close-modal svg {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-close-modal:hover {
+  background: var(--warm);
+  color: var(--coral);
+  transform: rotate(90deg);
+}
+
+/* Encabezado */
+.form-header-box {
+  margin-bottom: 2rem;
+}
+
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.form-title em {
+  font-style: normal;
+  color: var(--coral);
+}
+
+.form-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Grid del formulario (2 columnas) */
+.form-body-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Inputs de texto y labels */
+.custom-form-group {
+  margin-bottom: 1.4rem;
+}
+
+.custom-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.custom-label small {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.custom-input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.92rem;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text);
+  background-color: var(--cream);
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.custom-input:focus {
+  outline: none;
+  background-color: var(--white);
+  border-color: var(--coral);
+  box-shadow: 0 4px 14px rgba(232, 66, 106, 0.15);
+}
+
+.custom-input.is-invalid {
+  border-color: var(--coral);
+  background-color: #fff5f7;
+}
+
+.validation-msg {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--coral);
+  margin-top: 0.35rem;
+}
+
+/* Tarjeta informativa de la derecha */
+.form-action-card {
+  background: linear-gradient(145deg, #f0f8f6 0%, #e2f1ee 100%);
+  border: 1px solid #cce5e0;
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-action-card.virtual-card {
+  background: linear-gradient(145deg, #f4f6fb 0%, #e5ebf8 100%);
+  border-color: #cbd8f2;
+}
+
+.badge-tipo {
+  align-self: flex-start;
+  background: var(--teal);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+
+.virtual-card .badge-tipo {
+  background: var(--purple);
+}
+
+.form-action-card h4 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.card-info-text {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.desglosable-list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.desglosable-list li {
+  font-size: 0.85rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.desglosable-list li::before {
+  content: '•';
+  color: var(--teal);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Botones de acción */
+.action-buttons-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.btn-generar-action {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--coral);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.85rem 1.2rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(232, 66, 106, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-generar-action:hover:not(:disabled) {
+  background: var(--coral-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 66, 106, 0.4);
+}
+
+.btn-generar-action:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-generar-action .btn-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-cancel-action {
+  width: 100%;
+  background: transparent;
+  color: var(--muted);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-cancel-action:hover {
+  color: var(--coral);
+}
+
+.reminder-note {
+  display: block;
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-top: 0.8rem;
+  line-height: 1.3;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .form-body-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .form-container-wrapper {
+    padding: 2.2rem 1.4rem 1.6rem;
+  }
+}
