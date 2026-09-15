@@ -9,7 +9,6 @@
   margin-top: 2.5rem;
 }
 
-/* Animación de apertura suave */
 .animate-form {
   animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -25,7 +24,6 @@
   }
 }
 
-/* Botón cerrar flotante */
 .btn-close-modal {
   position: absolute;
   top: 1.2rem;
@@ -56,7 +54,6 @@
   transform: rotate(90deg);
 }
 
-/* Encabezado */
 .form-header-box {
   margin-bottom: 2rem;
 }
@@ -80,7 +77,6 @@
   line-height: 1.5;
 }
 
-/* Grid del formulario (2 columnas) */
 .form-body-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
@@ -88,7 +84,6 @@
   align-items: start;
 }
 
-/* Inputs de texto y labels */
 .custom-form-group {
   margin-bottom: 1.4rem;
 }
@@ -141,7 +136,6 @@
   margin-top: 0.35rem;
 }
 
-/* Tarjeta informativa de la derecha */
 .form-action-card {
   background: linear-gradient(145deg, #f0f8f6 0%, #e2f1ee 100%);
   border: 1px solid #cce5e0;

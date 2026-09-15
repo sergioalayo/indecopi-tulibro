@@ -1,12 +1,12 @@
 <div class="form-container-wrapper animate-form">
-  <!-- Botón cerrar flotante -->
+  <!-- Para cerrar -->
   <button type="button" class="btn-close-modal" (click)="onCerrar()" title="Cerrar formulario">
     <svg viewBox="0 0 512 512" fill="currentColor">
       <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM167 167c-9.4 9.4-9.4 24.6 0 33.9l55 55-55 55c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l55-55 55 55c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-55-55 55-55c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-55 55-55-55c-9.4-9.4-24.6-9.4-33.9 0z"/>
     </svg>
   </button>
 
-  <!-- Encabezado del Formulario -->
+  <!-- Titulo formulario -->
   <div class="form-header-box">
     <span class="section-tag">Generador Oficial</span>
     <h3 class="form-title">Genera tu <em>Hoja de Reclamación</em></h3>
@@ -15,9 +15,9 @@
 
   <form [formGroup]="formHoja" (ngSubmit)="onGenerar()" class="form-body-grid">
     
-    <!-- Columna Izquierda: Inputs -->
+    <!-- Parte izquierda -->
     <div class="form-inputs-col">
-      <!-- Input RUC -->
+      <!-- RUC -->
       <div class="custom-form-group">
         <label for="numeroRuc" class="custom-label">
           <span>N° de RUC</span>
@@ -36,7 +36,7 @@
         }
       </div>
 
-      <!-- Input Razón Social -->
+      <!-- Razon social -->
       <div class="custom-form-group">
         <label for="proveedor" class="custom-label">Razón Social o Nombre Comercial</label>
         <input id="proveedor" 
@@ -49,7 +49,7 @@
                [class.is-invalid]="formHoja.get('proveedor')?.touched && formHoja.get('proveedor')?.invalid">
       </div>
 
-      <!-- Input Domicilio -->
+      <!-- direccion -->
       <div class="custom-form-group">
         <label for="domicilio" class="custom-label">
           {{ tipo === 'fisico' ? 'Domicilio del establecimiento' : 'Domicilio fiscal' }}
@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <!-- Columna Derecha: Tarjeta de Información y Descarga -->
+    <!-- Parte derecha: info y descargar -->
     <div class="form-action-card" [class.virtual-card]="tipo === 'virtual'">
       <div class="badge-tipo">
         {{ tipo === 'fisico' ? '📚 Modalidad Física' : '💻 Modalidad Virtual' }}
