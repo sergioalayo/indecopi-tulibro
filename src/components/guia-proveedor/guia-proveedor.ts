@@ -26,11 +26,6 @@ export class GuiaProveedorComponent implements AfterViewInit {
     this.formatoSeleccionado = null;
   }
 
-  // Handler que recibirá los datos listos para el servicio del equipo de backend/generación
-  ejecutarDescarga(datos: { tipo: string; ruc: string; proveedor: string; domicilio: string }): void {
-    console.log('Datos listos para enviar al servicio generador de PDF/ZIP de Indecopi:', datos);
-    alert(`Formulario validado para Libro ${datos.tipo.toUpperCase()}.\nListo para invocar el empaquetador .ZIP para RUC: ${datos.ruc}`);
-  }
 
   // Escucha el evento de desplazamiento para calcular la barra de progreso
   @HostListener('window:scroll', [])
@@ -38,6 +33,21 @@ export class GuiaProveedorComponent implements AfterViewInit {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     this.progressWidth = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  }
+
+    abrirAviso(tipo: string) {
+    let url = '';
+
+    if (tipo === 'fisico') {
+      url = 'https://consumidor.gob.pe/wp-content/uploads/2020/07/AvisoFisico_Fisico.pdf';
+    } else if (tipo === 'fisico-virtual') {
+      url = 'https://consumidor.gob.pe/wp-content/uploads/2020/07/AvisoFisico_Virtual.pdf';
+    } else if (tipo === 'virtual') {
+      url = 'https://consumidor.gob.pe/wp-content/uploads/2020/07/AvisoVirtual.pdf';
+    }
+
+    // Esto hace la misma función que el target="_blank"
+    window.open(url, '_blank');
   }
 
   // Configura el IntersectionObserver para las animaciones al hacer scroll

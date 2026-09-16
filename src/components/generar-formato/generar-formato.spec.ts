@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GenerarFormato } from './generar-formato';
+import { GenerarFormatoComponent } from './generar-formato';
 
-describe('GenerarFormato', () => {
-  let component: GenerarFormato;
-  let fixture: ComponentFixture<GenerarFormato>;
+describe('GenerarFormatoComponent', () => {
+  let component: GenerarFormatoComponent;
+  let fixture: ComponentFixture<GenerarFormatoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GenerarFormato],
+      imports: [GenerarFormatoComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GenerarFormato);
+    fixture = TestBed.createComponent(GenerarFormatoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GuiaProveedorComponent } from './guia-proveedor';
+import { GuiaProveedorComponent} from './guia-proveedor';
 
 describe('GuiaProveedor', () => {
   let component: GuiaProveedorComponent;

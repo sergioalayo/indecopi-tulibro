@@ -1,27 +1,29 @@
 <div class="form-container-wrapper animate-form">
-  <!-- Para cerrar -->
+  
+  <!-- Botón para cerrar -->
   <button type="button" class="btn-close-modal" (click)="onCerrar()" title="Cerrar formulario">
     <svg viewBox="0 0 512 512" fill="currentColor">
       <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM167 167c-9.4 9.4-9.4 24.6 0 33.9l55 55-55 55c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l55-55 55 55c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-55-55 55-55c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-55 55-55-55c-9.4-9.4-24.6-9.4-33.9 0z"/>
     </svg>
   </button>
 
-  <!-- Titulo formulario -->
+  <!-- Título formulario -->
   <div class="form-header-box">
-    <span class="section-tag">Generador Oficial</span>
-    <h3 class="form-title">Genera tu <em>Hoja de Reclamación</em></h3>
-    <p class="form-subtitle">Ingresa los datos de tu empresa para personalizar y emitir el formato legal correspondiente.</p>
+    <span class="section-tag">Generador oficial</span>
+    <h3 class="form-title">Genera tu <em>hoja de reclamación</em></h3>
+    <p class="form-subtitle">Ingresa los datos de tu empresa para personalizar y emitir el formato correspondiente.</p>
   </div>
 
   <form [formGroup]="formHoja" (ngSubmit)="onGenerar()" class="form-body-grid">
     
     <!-- Parte izquierda -->
     <div class="form-inputs-col">
+      
       <!-- RUC -->
       <div class="custom-form-group">
         <label for="numeroRuc" class="custom-label">
           <span>N° de RUC</span>
-          <small>Solo RUC 10, 15, 20 o 90</small>
+          <small style="font-weight: normal; color: var(--inde-gris);">Solo RUC 10, 15, 20 o 90</small>
         </label>
         <input id="numeroRuc" 
                type="text" 
@@ -31,14 +33,15 @@
                placeholder="Ej: 20123456789" 
                class="custom-input"
                [class.is-invalid]="formHoja.get('numeroRuc')?.touched && formHoja.get('numeroRuc')?.invalid">
+        
         @if (formHoja.get('numeroRuc')?.touched && formHoja.get('numeroRuc')?.errors?.['invalidRuc']) {
           <span class="validation-msg">El RUC debe tener 11 dígitos y comenzar con 10, 15, 20 o 90.</span>
         }
       </div>
 
-      <!-- Razon social -->
+      <!-- Razón social -->
       <div class="custom-form-group">
-        <label for="proveedor" class="custom-label">Razón Social o Nombre Comercial</label>
+        <label for="proveedor" class="custom-label">Razón social o nombre comercial</label>
         <input id="proveedor" 
                type="text" 
                formControlName="proveedor" 
@@ -46,10 +49,11 @@
                (input)="onTextInput('proveedor', $event)"
                placeholder="NOMBRE DE LA EMPRESA SAC" 
                class="custom-input"
+               uppercase
                [class.is-invalid]="formHoja.get('proveedor')?.touched && formHoja.get('proveedor')?.invalid">
       </div>
 
-      <!-- direccion -->
+      <!-- Dirección -->
       <div class="custom-form-group">
         <label for="domicilio" class="custom-label">
           {{ tipo === 'fisico' ? 'Domicilio del establecimiento' : 'Domicilio fiscal' }}
@@ -63,10 +67,12 @@
                class="custom-input"
                [class.is-invalid]="formHoja.get('domicilio')?.touched && formHoja.get('domicilio')?.invalid">
       </div>
+
     </div>
 
     <!-- Parte derecha: info y descargar -->
-    <div class="form-action-card" [class.virtual-card]="tipo === 'virtual'">
+    <div class="form-action-card">
+      
       <div class="badge-tipo">
         {{ tipo === 'fisico' ? '📚 Modalidad Física' : '💻 Modalidad Virtual' }}
       </div>
@@ -74,11 +80,11 @@
       <h4>{{ tipo === 'fisico' ? 'Libro Físico' : 'Libro Virtual' }}</h4>
       
       @if (tipo === 'fisico') {
-        <p class="card-info-text">El archivo contiene el formato oficial con sus <strong>tres (3) desglosables</strong>:</p>
-        <ul class="desglosable-list">
-          <li>Original para el <strong>Consumidor</strong></li>
-          <li>Copia para el <strong>Proveedor</strong></li>
-          <li>Copia para <strong>INDECOPI</strong></li>
+        <p class="card-info-text">El archivo contiene el formato oficial con sus <strong>tres desglosables</strong>:</p>
+        <ul class="desglosable-list" style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0;">
+          <li>Original para el <strong>consumidor</strong></li>
+          <li>Copia para el <strong>proveedor</strong></li>
+          <li>Copia para <strong>el Indecopi</strong></li>
         </ul>
       } @else {
         <p class="card-info-text">Formato digital editable para integrar en tu plataforma web o enviar confirmación por correo electrónico.</p>
@@ -88,10 +94,10 @@
         <button type="submit" 
                 class="btn-generar-action"
                 [disabled]="formHoja.invalid">
-          <svg class="btn-icon" viewBox="0 0 448 512" fill="currentColor">
+          <svg style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;" viewBox="0 0 448 512" fill="currentColor">
             <path d="M256 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 210.7-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 242.7 256 32zM64 320c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-46.9 0-56.6 56.6c-31.2 31.2-81.9 31.2-113.1 0L110.9 320 64 320zm304 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
           </svg>
-          Descargar Hoja {{ tipo === 'fisico' ? 'Física' : 'Virtual' }}
+          Descargar hoja {{ tipo === 'fisico' ? 'Física' : 'Virtual' }}
         </button>
 
         <button type="button" class="btn-cancel-action" (click)="onCerrar()">
@@ -99,14 +105,15 @@
         </button>
       </div>
 
-      <small class="reminder-note">
+      <p class="reminder-note">
         @if (tipo === 'fisico') {
           *Recuerda que estas hojas deben unirse en un solo libro numerado.
         } @else {
           *El archivo descargado se genera en formato editable.
         }
-      </small>
+      </p>
+      
     </div>
-
   </form>
+  
 </div>
